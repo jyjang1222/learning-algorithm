@@ -1,0 +1,24 @@
+#=> Eclipse
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+local.properties
+.settings/
+.loadpath
+.recommenders
+.project
+.externalToolBuilders/
+*.launch
+.classpath
+.factorypath
+.buildpath
+.target
+.springBeans
+.recommenders/
+#intellij
+out/
+.idea/
+*.iml
