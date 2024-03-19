@@ -64,6 +64,37 @@ public static int[] insertSort(int[] array) {
 - 미정렬된 데이터에서 데이터를 하나 뽑은 후 정렬된 데이터에 바른 위치에 삽입해서 나열하는 방식이다
 - 첫번째 데이터를 이미 정렬된 것으로 간주한다.
 
+## 쉘 정렬
+```java
+public static int[] shellSort(int[] array) {
+    int gap = array.length / 2;
+    
+    while(gap >= 1) { // gap이 1이 될때까지 반복 (부분배열 1개가 될때까지)
+        for (int i = 0; i < gap; i++) { // 부분배열 갯수 만큼 반복
+            // 아래는 삽입정렬
+            for (int j = i + gap; j < array.length; j += gap) {
+                int val = array[j]; // 데이터 선택
+                int idx = j; // 삽입할 위치
+                
+                for (int k = j; k > i; k -= gap) { // 삽입할 위치 찾기
+                    if (array[k - gap] > val) { // array[j - 1]가 크면 뒤로 한칸 이동
+                        array[k] = array[k - gap];
+                        idx = k - gap;
+                    } else {
+                        break;
+                    }
+                }
+                array[idx] = val;
+            }
+        }
+
+        gap /= 2;
+    }
+    return array;
+}
+```
+- 삽입 정렬의 단점을 보완한 것으로 부분배열의 크기와 갯수를 변화시키면서 삽입 정렬을 수행한다.
+
 # 기타
 ## 유클리드 호제법
 ### 최대공약수 구하기
