@@ -1,5 +1,30 @@
-# learning-algorithm
+# 정렬 알고리즘
+## 선택 정렬
+### 내림차순 정렬
+```java
+public static int[] SelectionSortDesc(int[] array) {
+    for (int i = 0; i < array.length - 1; i++) {
+        int max = array[i];
+        int maxIdx = i;
+        
+        for (int j = i + 1; j < array.length; j++) {
+            if (array[j] > max) {
+                max = array[j];
+                maxIdx = j;
+            }
+        }
+        
+        int temp = array[i];
+        array[i] = max;
+        array[maxIdx] = temp;
+    }
+    
+    return array;
+}
+```
+- 입력 배열에서 가장 큰 또 작은 값부터 순서대로 **선택**해서 나열하는 방식
 
+# 기타
 ## 유클리드 호제법
 ### 최대공약수 구하기
 ```java
