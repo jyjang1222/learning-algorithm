@@ -1,7 +1,7 @@
 # 정렬 알고리즘
 ## 선택 정렬
 ```java
-public static int[] SelectionSortAsc(int[] array) {
+public static int[] selectionSort(int[] array) {
     for (int i = 0; i < array.length - 1; i++) {
         int minIdx = i;
         
@@ -19,11 +19,11 @@ public static int[] SelectionSortAsc(int[] array) {
     return array;
 }
 ```
-- 입력 배열에서 가장 큰 또 작은 값부터 순서대로 **선택**해서 나열하는 방식
+- 입력 배열에서 가장 큰 또 작은 값부터 순서대로 **선택**해서 나열하는 방식이다
 
 ## 버블 정렬
 ```java
-public static int[] BubbleSortAsc(int[] array) {
+public static int[] bubbleSort(int[] array) {
     for (int i = 0; i < array.length - 1; i++) {
         for (int j = 0; j < array.length - 1 - i; j++) {
             if (array[j] > array[j + 1]) {
@@ -38,6 +38,31 @@ public static int[] BubbleSortAsc(int[] array) {
 }
 ```
 - 모든 인접한 두 데이터를 차례대로 비교해서 자리를 바꾸는 과정을 반복해서 정렬을 수행한다
+- 구현이 간단하다
+
+## 삽입 정렬
+```java
+public static int[] insertSort(int[] array) {
+    for (int i = 1; i < array.length; i++) {
+        int val = array[i];
+        
+        for (int j = i; j > 0; j--) {
+            if (array[j - 1] > val) {
+                int temp = array[j];
+                array[j] = array[j - 1];
+                array[j - 1] = temp;
+            } else {					
+                array[j - 1] = val;
+                break;
+            }
+        }
+    }
+    
+    return array;
+}
+```
+- 미정렬된 데이터에서 데이터를 하나 뽑은 후 정렬된 데이터에 바른 위치에 삽입해서 나열하는 방식이다
+- 첫번째 데이터를 이미 정렬된 것으로 간주한다.
 
 # 기타
 ## 유클리드 호제법
