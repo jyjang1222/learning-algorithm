@@ -1,28 +1,43 @@
 # 정렬 알고리즘
 ## 선택 정렬
-### 내림차순 정렬
 ```java
-public static int[] SelectionSortDesc(int[] array) {
+public static int[] SelectionSortAsc(int[] array) {
     for (int i = 0; i < array.length - 1; i++) {
-        int max = array[i];
-        int maxIdx = i;
+        int minIdx = i;
         
         for (int j = i + 1; j < array.length; j++) {
-            if (array[j] > max) {
-                max = array[j];
-                maxIdx = j;
+            if (array[j] < array[minIdx]) {
+                minIdx = j;
             }
         }
         
         int temp = array[i];
-        array[i] = max;
-        array[maxIdx] = temp;
+        array[i] = array[minIdx];
+        array[minIdx] = temp;
     }
     
     return array;
 }
 ```
 - 입력 배열에서 가장 큰 또 작은 값부터 순서대로 **선택**해서 나열하는 방식
+
+## 버블 정렬
+```java
+public static int[] BubbleSortAsc(int[] array) {
+    for (int i = 0; i < array.length - 1; i++) {
+        for (int j = 0; j < array.length - 1 - i; j++) {
+            if (array[j] > array[j + 1]) {
+                int temp = array[j + 1];
+                array[j + 1] = array[j];
+                array[j] = temp;
+            }
+        }				
+    }
+    
+    return array;
+}
+```
+- 모든 인접한 두 데이터를 차례대로 비교해서 자리를 바꾸는 과정을 반복해서 정렬을 수행한다
 
 # 기타
 ## 유클리드 호제법
