@@ -45,17 +45,17 @@ public static int[] bubbleSort(int[] array) {
 public static int[] insertSort(int[] array) {
     for (int i = 1; i < array.length; i++) {
         int val = array[i];
+        int idx = i;
         
         for (int j = i; j > 0; j--) {
             if (array[j - 1] > val) {
-                int temp = array[j];
                 array[j] = array[j - 1];
-                array[j - 1] = temp;
-            } else {					
-                array[j - 1] = val;
+                idx = j - 1;
+            } else {
                 break;
             }
         }
+        array[idx] = val;
     }
     
     return array;
