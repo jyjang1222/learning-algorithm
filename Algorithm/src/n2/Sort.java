@@ -1,7 +1,8 @@
 package n2;
 
 public class Sort {
-	public static int[] SelectionSortAsc(int[] array) {
+	
+	public static int[] selectionSort(int[] array) {
 		for (int i = 0; i < array.length - 1; i++) {
 			int minIdx = i;
 			
@@ -19,7 +20,7 @@ public class Sort {
 		return array;
 	}
 	
-	public static int[] BubbleSortAsc(int[] array) {
+	public static int[] bubbleSort(int[] array) {
 		for (int i = 0; i < array.length - 1; i++) {
 			for (int j = 0; j < array.length - 1 - i; j++) {
 				if (array[j] > array[j + 1]) {
@@ -32,4 +33,25 @@ public class Sort {
 		
 		return array;
 	}
+	
+	
+	public static int[] insertSort(int[] array) {
+		for (int i = 1; i < array.length; i++) {
+			int val = array[i];
+			
+			for (int j = i; j > 0; j--) {
+				if (array[j - 1] > val) {
+					int temp = array[j];
+					array[j] = array[j - 1];
+					array[j - 1] = temp;
+				} else {					
+					array[j - 1] = val;
+					break;
+				}
+			}
+		}
+		
+		return array;
+	}
+	
 }
