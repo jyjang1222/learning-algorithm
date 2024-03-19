@@ -8,7 +8,7 @@ public class Sort {
 			
 			for (int j = i + 1; j < array.length; j++) {
 				if (array[j] < array[minIdx]) {
-					minIdx = j;
+					minIdx = j;					
 				}
 			}
 			
@@ -16,7 +16,6 @@ public class Sort {
 			array[i] = array[minIdx];
 			array[minIdx] = temp;
 		}
-		
 		return array;
 	}
 	
@@ -30,27 +29,51 @@ public class Sort {
 				}
 			}				
 		}
-		
 		return array;
 	}
 	
-	
 	public static int[] insertSort(int[] array) {
 		for (int i = 1; i < array.length; i++) {
-			int val = array[i];
+			int val = array[i]; // 데이터 선택
+			int idx = i; // 삽입할 위치
 			
-			for (int j = i; j > 0; j--) {
-				if (array[j - 1] > val) {
-					int temp = array[j];
+			for (int j = i; j > 0; j--) { // 삽입할 위치 찾기
+				if (array[j - 1] > val) { // array[j - 1]가 크면 뒤로 한칸 이동
 					array[j] = array[j - 1];
-					array[j - 1] = temp;
-				} else {					
-					array[j - 1] = val;
+					idx = j - 1;
+				} else {
 					break;
 				}
 			}
+			array[idx] = val;
 		}
+		return array;
+	}
+	
+	public static int[] shellSort(int[] array) {
+		int gap = array.length / 2;
 		
+		while(gap >= 1) { // gap이 1이 될때까지 반복
+			for (int i = 0; i < gap; i++) { // 부분배열 갯수 만큼 반복
+				// 아래는 삽입정렬
+				for (int j = i + gap; j < array.length; j += gap) {
+					int val = array[j]; // 데이터 선택
+					int idx = j; // 삽입할 위치
+					
+					for (int k = j; k > i; k -= gap) { // 삽입할 위치 찾기
+						if (array[k - gap] > val) { // array[j - 1]가 크면 뒤로 한칸 이동
+							array[k] = array[k - gap];
+							idx = k - gap;
+						} else {
+							break;
+						}
+					}
+					array[idx] = val;
+				}
+			}
+	
+			gap /= 2;
+		}
 		return array;
 	}
 	
