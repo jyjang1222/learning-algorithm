@@ -1,4 +1,4 @@
-package test;
+package other;
 
 public class Gcd {
 	public static int gcd(int a, int b) {

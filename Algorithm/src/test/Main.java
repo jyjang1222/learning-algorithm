@@ -1,9 +1,17 @@
 package test;
 
-public class Main {
+import java.util.Arrays;
 
+import n2.Sort;
+
+public class Main {
+	
 	public static void main(String[] args) {
-		System.out.println(Gcd.gcd(48, 18));
+		
+		int[] numList = {345,67,4,56,761,35,1233,0,-1,35,-32,4};
+		numList = Sort.SelectionSortDesc(numList);
+		System.out.println(Arrays.toString(numList));
+		
 	}
 
 }
